@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.io.*;
 
-public class GuardarVinoBinario implements Serializable{
+public class ObjVinoBinario implements Serializable{
     String nombre;
     String region;
     String tipo;
@@ -9,7 +9,7 @@ public class GuardarVinoBinario implements Serializable{
     String envejecimiento;
     String bodega;
 
-    public GuardarVinoBinario(String nombre, String region, String tipo, String uva, String envejecimiento, String bodega) {
+    public ObjVinoBinario(String nombre, String region, String tipo, String uva, String envejecimiento, String bodega) {
         this.nombre = nombre;
         this.region = region;
         this.tipo = tipo;
@@ -18,7 +18,27 @@ public class GuardarVinoBinario implements Serializable{
         this.bodega = bodega;
     }
 
-    public static boolean escribirEnFichero(ArrayList<GuardarVinoBinario> lista) throws IOException {
+    public String getNombre() {
+        return nombre;
+    }
+    public String getRegion() {
+        return region;
+    }
+    public String getTipo() {
+        return tipo;
+    }
+    public String getUva() {
+        return uva;
+    }
+    public String getEnvejecimiento() {
+        return envejecimiento;
+    }
+
+    public String getBodega() {
+        return bodega;
+    }
+
+    public static boolean escribirEnFicheroBinario(ArrayList<ObjVinoBinario> lista) throws IOException {
 
         File fichero = new File("binarioVinos.dat");//declara el fichero
         FileOutputStream fileout = new FileOutputStream(fichero,true);  //crea el flujo de salida
@@ -27,7 +47,7 @@ public class GuardarVinoBinario implements Serializable{
 
         System.out.println("GRABAMOS LOS DATOS DE LOS VINOS");
         for (int i=0;i<lista.size(); i++){ //recorro los arrays
-            dataOS.writeObject( lista.get(i) ); //escribo la persona en el fichero
+            dataOS.writeObject( lista.get(i) ); //escribo la vino en el fichero
             System.out.println("GRABADO EL "+i+" DATO DE VINOS");
         }
         dataOS.close();
@@ -35,9 +55,9 @@ public class GuardarVinoBinario implements Serializable{
     }
 
     public static void main(String[] args) throws IOException {
-        ArrayList<GuardarVinoBinario> listaVinos = new ArrayList<>();
+        ArrayList<ObjVinoBinario> listaVinos = new ArrayList<>();
         listaVinos.add(
-                new GuardarVinoBinario("barolo",
+                new ObjVinoBinario("barolo",
                         "Piamonte",
                         "Tinto",
                         "Nebbiolo",
@@ -45,7 +65,7 @@ public class GuardarVinoBinario implements Serializable{
                         "Marchesi di Barolo")
         );
         listaVinos.add(
-                new GuardarVinoBinario("Brunello di Montalcino",
+                new ObjVinoBinario("Brunello di Montalcino",
                         "Toscana",
                         "Tinto",
                         "Sangiovese",
@@ -53,7 +73,7 @@ public class GuardarVinoBinario implements Serializable{
                         "Biondi Santi")
         );
         listaVinos.add(
-                new GuardarVinoBinario("Chianti Classico Riserva",
+                new ObjVinoBinario("Chianti Classico Riserva",
                         "Toscana",
                         "Tinto",
                         "Sangiovese (mayoritaria), Canaiolo",
@@ -61,7 +81,7 @@ public class GuardarVinoBinario implements Serializable{
                         "Antinori")
         );
         listaVinos.add(
-                new GuardarVinoBinario("Amarone della Valpolicella",
+                new ObjVinoBinario("Amarone della Valpolicella",
                         "Veneto",
                         "Tinto",
                         "Corvina, Rondinella, Molinara",
@@ -69,14 +89,14 @@ public class GuardarVinoBinario implements Serializable{
                         "Masi")
         );
         listaVinos.add(
-                new GuardarVinoBinario("Prosecco di Valdobbiadene",
+                new ObjVinoBinario("Prosecco di Valdobbiadene",
                         "Veneto",
                         "Espumoso",
                         "Glera",
                         "Charmat",
                         "Nino Franco")
         );
-        escribirEnFichero(listaVinos);
+        escribirEnFicheroBinario(listaVinos);
     }
 }
 
