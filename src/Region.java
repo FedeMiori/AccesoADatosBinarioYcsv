@@ -32,10 +32,10 @@ public class Region {
 
     @Override
     public String toString() {
-        return "Region{" +
-                "nombre='" + nombre + '\'' +
-                ", pais='" + pais + '\'' +
-                ", vinos=" + vinos +
-                '}';
+        String region = "Region: "+nombre+", "+pais+"\n Vinos:\n";
+        for (int i = 0; i < vinos.size(); i++) {
+            region += " - "+vinos.get(i).getNombre()+"\n";
+        }
+        return region;
     }
 }

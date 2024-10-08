@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class LaNostraCantina{
+public class LaNostraCantina implements Serializable{
     private ArrayList<Region> regioniItaliane = new ArrayList<>();
 
     public LaNostraCantina(){
@@ -25,7 +25,6 @@ public class LaNostraCantina{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void cargarVinosVinario() throws IOException, ClassNotFoundException {
@@ -65,8 +64,7 @@ public class LaNostraCantina{
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         LaNostraCantina laNostraCantina = new LaNostraCantina();
         laNostraCantina.cargarRegionesCSV();
-        //laNostraCantina.cargarVinosVinario();
-        //aqui casca
+        laNostraCantina.cargarVinosVinario();
         laNostraCantina.mostrarRegionesConsola();
     }
 }
