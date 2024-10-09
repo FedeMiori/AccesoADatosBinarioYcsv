@@ -1,9 +1,9 @@
 public class Vino {
-    String nombre;
-    String tipo;
-    String uva;
-    String envejecimiento;
-    String bodega;
+    private String nombre;
+    private String tipo;
+    private String uva;
+    private String envejecimiento;
+    private String bodega;
 
     public Vino(String nombre, String tipo, String uva, String envejecimiento, String bodega) {
         this.nombre = nombre;

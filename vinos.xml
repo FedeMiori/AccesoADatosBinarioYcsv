@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VinosItalianos>
+    <Región id="ri0">
+        <nombre>Piamonte</nombre>
+        <pais>Italia</pais>
+        <Vinos>
+            <Vino>
+                <vino>barolo</vino>
+                <tipo>Tinto</tipo>
+                <uva>Nebbiolo</uva>
+                <envejecimiento>24 meses en barrica</envejecimiento>
+                <bodega>Marchesi di Barolo</bodega>
+            </Vino>
+        </Vinos>
+    </Región>
+    <Región id="ri1">
+        <nombre>Toscana</nombre>
+        <pais>Italia</pais>
+        <Vinos>
+            <Vino>
+                <vino>Brunello di Montalcino</vino>
+                <tipo>Tinto</tipo>
+                <uva>Sangiovese</uva>
+                <envejecimiento>36 meses en roble</envejecimiento>
+                <bodega>Biondi Santi</bodega>
+            </Vino>
+            <Vino>
+                <vino>Chianti Classico Riserva</vino>
+                <tipo>Tinto</tipo>
+                <uva>Sangiovese (mayoritaria), Canaiolo</uva>
+                <envejecimiento>24 meses</envejecimiento>
+                <bodega>Antinori</bodega>
+            </Vino>
+        </Vinos>
+    </Región>
+    <Región id="ri2">
+        <nombre>Veneto</nombre>
+        <pais>Italia</pais>
+        <Vinos>
+            <Vino>
+                <vino>Amarone della Valpolicella</vino>
+                <tipo>Tinto</tipo>
+                <uva>Corvina, Rondinella, Molinara</uva>
+                <envejecimiento>48 meses en barrica</envejecimiento>
+                <bodega>Masi</bodega>
+            </Vino>
+            <Vino>
+                <vino>Prosecco di Valdobbiadene</vino>
+                <tipo>Espumoso</tipo>
+                <uva>Glera</uva>
+                <envejecimiento>Charmat</envejecimiento>
+                <bodega>Nino Franco</bodega>
+            </Vino>
+        </Vinos>
+    </Región>
+</VinosItalianos>
