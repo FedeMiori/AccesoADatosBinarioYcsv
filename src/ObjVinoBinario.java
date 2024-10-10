@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.io.*;
 
+/**
+ * Esta Clase se encarga, Únicamente de generar el archivo Binario con los vinos
+ * ya que no hay forma de crearlo manualmente
+ *
+ * El codigo de esta clase no es muy "elegante" pero no queríamos explayarnos mucho en este apartado
+ */
 public class ObjVinoBinario implements Serializable{
     String nombre;
     String region;
@@ -38,6 +44,9 @@ public class ObjVinoBinario implements Serializable{
         return bodega;
     }
 
+    /**
+     * Recorre el arraylist pasado como parametro y va guardando cada vino en el archivo
+     */
     public static boolean escribirEnFicheroBinario(ArrayList<ObjVinoBinario> lista) throws IOException {
 
         File fichero = new File("binarioVinos.dat");//declara el fichero
@@ -47,13 +56,16 @@ public class ObjVinoBinario implements Serializable{
 
         System.out.println("GRABAMOS LOS DATOS DE LOS VINOS");
         for (int i=0;i<lista.size(); i++){ //recorro los arrays
-            dataOS.writeObject( lista.get(i) ); //escribo la vino en el fichero
+            dataOS.writeObject( lista.get(i) ); //escribo el vino en el fichero
             System.out.println("GRABADO EL "+i+" DATO DE VINOS");
         }
         dataOS.close();
         return true;
     }
 
+    /**
+     * Instancia los vinos y crea el binario
+     */
     public static void main(String[] args) throws IOException {
         ArrayList<ObjVinoBinario> listaVinos = new ArrayList<>();
         listaVinos.add(

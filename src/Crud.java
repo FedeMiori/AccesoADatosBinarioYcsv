@@ -11,7 +11,14 @@ import org.w3c.dom.*;
 
 import java.io.File;
 
+/**
+ * Esta clase se encarga del CRUD y del Ap6
+ */
 public class Crud {
+
+    /**
+     * Añade una nueva región con id: ri04 nombre: Bolzano pais:Italia
+     */
     public static void create(){
         String nombreRegionAñadir = "Bolzano";
         try{
@@ -43,6 +50,9 @@ public class Crud {
         }
     }
 
+    /**
+     * Busca y borra el vino con nombre "Barolo"
+     */
     public static void delete(){
         try {
             File inputFile = new File("vinos.xml");
@@ -74,6 +84,9 @@ public class Crud {
         }
     }
 
+    /**
+     * Lista por consola los nombres de todos los vinos
+     */
     public static void read(){
         try{
             File inputFile = new File("vinos.xml");
@@ -103,6 +116,11 @@ public class Crud {
         //TO DO
     }
 
+    /**
+     * Muestra por consola todos los nombres de regiones cuyo id contiene "ri"
+     * que son todas las regiones. Lo cual lo hace una consulta un poco absurda pero no teniamos mas atributos
+     * para hacer una agrupacion con sentido. Pero la consulta está que es lo que importa :)
+     */
     public static void consultaAp6(){
         try {
             File inputFile = new File("vinos.xml");
@@ -112,10 +130,11 @@ public class Crud {
 
             NodeList listaRegiones = doc.getElementsByTagName("Región");
 
+            //Recorre todos los nodos region
             for (int i = 0; i < listaRegiones.getLength(); i++) {
                 Element elementoRegion = (Element) listaRegiones.item(i);
                 String id = elementoRegion.getAttribute("id");
-
+                //Al pillar el id y guardarlo en un string se hace la comprobación
                 if (id.contains("ri")) {
                     String nombreRegion = elementoRegion.getElementsByTagName("nombre").item(0).getTextContent();
                     System.out.println(nombreRegion);
@@ -127,7 +146,9 @@ public class Crud {
         }
     }
 
-    // Metodo para crear y añadir elementos al XML
+    /**
+     * Crea un elemento Dado unos parametros para evitar duplicar codigo
+     */
     static void CrearElemento(String nombreElemento, String valor, Element raiz, Document document) {
         Element elem = document.createElement(nombreElemento);  // Crear el elemento
         Text text = document.createTextNode(valor);  // Crear el valor del elemento
@@ -135,6 +156,10 @@ public class Crud {
         elem.appendChild(text);  // Añadir el valor al elemento
     }
 
+
+    /**
+     * Este main hace las consultas CRUD y el Ap6
+     */
     public static void main(String[] args) {
         System.out.println("Create:\n");
         create();

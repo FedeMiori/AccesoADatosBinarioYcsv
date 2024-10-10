@@ -13,19 +13,30 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Esta clase se encarga, únicamente, de cargar los datos del binario y del csv y conformar el xml
+ */
 public class LaNostraCantina implements Serializable{
+    //De este arraylist cuelga toda nuestra estructura de datos
+    //ya que aquí están listadas las regiones y dentro de cada región están listados los vinos (en otro arrayList)
     private ArrayList<Region> regioniItaliane = new ArrayList<>();
 
     public LaNostraCantina(){
 
     }
 
+    /**
+     * Lista por consola las regiones con toString implicito desencadenado que se muestre todo el arbol por consola
+     */
     public void mostrarRegionesConsola(){
         for (int i = 0; i < regioniItaliane.size(); i++) {
             System.out.println(regioniItaliane.get(i));
         }
     }
 
+    /**
+     * Lee el csv y genera las Regiones a partir de los datos
+     */
     public void cargarRegionesCSV(){
         try (BufferedReader br = new BufferedReader(new FileReader("Regiones.csv"))) {
             String linea;
@@ -39,6 +50,9 @@ public class LaNostraCantina implements Serializable{
         }
     }
 
+    /**
+     *  Carga los vinos del binario y los relaciona con las regiones correspondientes
+     */
     public void cargarVinosVinario() throws IOException, ClassNotFoundException {
         File fichero = new File("binarioVinos.dat");
         ObjVinoBinario vinoBinario;
@@ -53,12 +67,18 @@ public class LaNostraCantina implements Serializable{
             }
         } catch (EOFException eo) {
             System.out.println("FIN DE LECTURA.");
-        } catch (StreamCorruptedException x) {
+        } catch (Exception e) {
+            System.out.println("ERROR: Hubo un problema al cargar el binario de vinos");
         }
 
         dataIS.close(); // cerrar stream de entrada
     }
 
+    /**
+     * Dado un String con el nombre de la región te devuelve el objeto región correspondiente
+     * @param nombreRegion es el nombre de la region a buscar
+     * @return la region deseada, el objeto como tal sacado de dentro del arraylist
+     */
     public Region buscarRegion(String nombreRegion){
         boolean encontrado=false;
         int i=0;
@@ -73,6 +93,9 @@ public class LaNostraCantina implements Serializable{
         return resultado;
     }
 
+    /**
+     * Este metodo cre el xml a partir de la extructura de datos que tenemos en forma de objetos
+     */
     public void crearXML(){
         try{
             // Paso 1: Inicializar el creador de documentos XML
