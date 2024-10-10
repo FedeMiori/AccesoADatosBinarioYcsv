@@ -5,7 +5,7 @@
         <pais>Italia</pais>
         <Vinos>
             <Vino>
-                <vino>barolo</vino>
+                <nombre>barolo</nombre>
                 <tipo>Tinto</tipo>
                 <uva>Nebbiolo</uva>
                 <envejecimiento>24 meses en barrica</envejecimiento>
@@ -18,14 +18,14 @@
         <pais>Italia</pais>
         <Vinos>
             <Vino>
-                <vino>Brunello di Montalcino</vino>
+                <nombre>Brunello di Montalcino</nombre>
                 <tipo>Tinto</tipo>
                 <uva>Sangiovese</uva>
                 <envejecimiento>36 meses en roble</envejecimiento>
                 <bodega>Biondi Santi</bodega>
             </Vino>
             <Vino>
-                <vino>Chianti Classico Riserva</vino>
+                <nombre>Chianti Classico Riserva</nombre>
                 <tipo>Tinto</tipo>
                 <uva>Sangiovese (mayoritaria), Canaiolo</uva>
                 <envejecimiento>24 meses</envejecimiento>
@@ -38,14 +38,14 @@
         <pais>Italia</pais>
         <Vinos>
             <Vino>
-                <vino>Amarone della Valpolicella</vino>
+                <nombre>Amarone della Valpolicella</nombre>
                 <tipo>Tinto</tipo>
                 <uva>Corvina, Rondinella, Molinara</uva>
                 <envejecimiento>48 meses en barrica</envejecimiento>
                 <bodega>Masi</bodega>
             </Vino>
             <Vino>
-                <vino>Prosecco di Valdobbiadene</vino>
+                <nombre>Prosecco di Valdobbiadene</nombre>
                 <tipo>Espumoso</tipo>
                 <uva>Glera</uva>
                 <envejecimiento>Charmat</envejecimiento>

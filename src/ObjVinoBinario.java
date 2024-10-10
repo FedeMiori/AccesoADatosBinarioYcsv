@@ -57,7 +57,7 @@ public class ObjVinoBinario implements Serializable{
     public static void main(String[] args) throws IOException {
         ArrayList<ObjVinoBinario> listaVinos = new ArrayList<>();
         listaVinos.add(
-                new ObjVinoBinario("barolo",
+                new ObjVinoBinario("Barolo",
                         "Piamonte",
                         "Tinto",
                         "Nebbiolo",

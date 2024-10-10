@@ -86,7 +86,7 @@ public class LaNostraCantina implements Serializable{
 
             for (int i = 0; i < regioniItaliane.size(); i++) {
                 Element elementoRegion = document.createElement("Región");
-                elementoRegion.setAttribute("id", "ri"+String.valueOf(i));
+                elementoRegion.setAttribute("id", "ri"+i);
                 document.getDocumentElement().appendChild(elementoRegion);
 
                 Region region = regioniItaliane.get(i);
@@ -110,7 +110,7 @@ public class LaNostraCantina implements Serializable{
                 }
             }
 
-            // Paso 4: Configurar el transformador para escribir el archivo XML
+            //Configuramos el transformador para escribir el archivo XML
             Source source = new DOMSource(document);
             Result result = new StreamResult(new File("vinos.xml"));
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
@@ -118,8 +118,8 @@ public class LaNostraCantina implements Serializable{
 
             System.out.println("Archivo XML generado correctamente.");
         }catch (Exception e) {
-            //System.out.println("\nERROR: Hubo un problema al generar el xml");
-            e.printStackTrace();
+            System.out.println("\nERROR: Hubo un problema al generar el xml");
+            //e.printStackTrace();
         }
     }
 
