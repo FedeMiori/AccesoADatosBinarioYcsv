@@ -26,6 +26,7 @@ public class Crud {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document documento = dBuilder.parse(inputFile);
+            documento.getDocumentElement().normalize();
 
             Element elementoRegion = documento.createElement("Región");
             elementoRegion.setAttribute("id", "ri"+4);
@@ -93,8 +94,9 @@ public class Crud {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
 
-            NodeList listaVinos = doc.getElementsByTagName("Vino");
+            NodeList listaVinos = doc.getElementsByTagName("vino");
 
             System.out.println("Nuestros Vinos:");
             for (int i = 0; i < listaVinos.getLength(); i++) {
@@ -102,13 +104,13 @@ public class Crud {
 
                 if (nodoVino.getNodeType() == Node.ELEMENT_NODE) {
                     Element elementoVino = (Element) nodoVino;
-                    String mombreVino = elementoVino.getElementsByTagName("vino").item(0).getTextContent();
-                    System.out.println(" - "+mombreVino);
+                    String nombreVino = elementoVino.getElementsByTagName("vino").item(0).getTextContent();
+                    System.out.println(" - "+nombreVino);
                 }
             }
         } catch (Exception e) {
-            System.out.println("ERROR: Hubo un problema en la lectura");
-            //e.printStackTrace();
+            //System.out.println("ERROR: Hubo un problema en la lectura");
+            e.printStackTrace();
         }
     }
 
@@ -127,6 +129,7 @@ public class Crud {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
 
             NodeList listaRegiones = doc.getElementsByTagName("Región");
 
